@@ -10,3 +10,5 @@ steps:
   dir: 'flask_demonotes'
 images:
 - 'gcr.io/${PROJECT_ID}/flask-demonotes-app:${COMMIT_SHA}'
+options:
+ logging: CLOUD_LOGGING_ONLY
