@@ -4,10 +4,17 @@ steps:
   
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/flask-demo-notes/flask-demonotes-app:${COMMIT_SHA}']
-
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy', 'flask-demonotes-app', '--image', 'us-central1-docker.pkg.dev/${PROJECT_ID}/flask-demo-notes/flask-demonotes-app:${COMMIT_SHA}', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated', '--project', '${PROJECT_ID}']
-
+# Create a Cloud Deploy release
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - deploy
+  - releases
+  - create
+  - release-$SHORT_SHA
+  - --region=us-central1                 # IMPORTANT: Confirm this is your Cloud Deploy pipeline's region
+  - --delivery-pipeline=notes-app-pipeline
+  - --images=notes-app=us-central1-docker.pkg.dev/$PROJECT_ID/flask-demo-notes/flask-demonotes-app:$SHORT_SHA # Pass the image
 images:
 - 'us-central1-docker.pkg.dev/${PROJECT_ID}/flask-demo-notes/flask-demonotes-app:${COMMIT_SHA}'
 options:
