@@ -14,7 +14,7 @@ steps:
   - release-$SHORT_SHA
   - --region=us-central1                 # IMPORTANT: Confirm this is your Cloud Deploy pipeline's region
   - --delivery-pipeline=notes-app-pipeline
-  - --images=notes-app=us-central1-docker.pkg.dev/$PROJECT_ID/flask-demo-notes/flask-demonotes-app:$SHORT_SHA # Pass the image
+  - --images=flask-demonotes-app=us-central1-docker.pkg.dev/$PROJECT_ID/flask-demo-notes/flask-demonotes-app:$SHORT_SHA # Pass the image
 images:
 - 'us-central1-docker.pkg.dev/${PROJECT_ID}/flask-demo-notes/flask-demonotes-app:${COMMIT_SHA}'
 options:
