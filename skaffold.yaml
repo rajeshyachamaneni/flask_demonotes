@@ -4,9 +4,16 @@ metadata:
   name: notes-app-pipeline
 
 profiles:
-- name: dev
+- name: notes-app-dev
   manifests:
     rawYaml:
     - dev.yaml
+  deploy:
+    cloudrun: {}
+
+- name: notes-app-prod
+  manifests:
+    rawYaml:
+    - prod.yaml
   deploy:
     cloudrun: {}
