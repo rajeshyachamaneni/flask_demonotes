@@ -3,7 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a New Note</title>
+    <title>Flask Demo Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #007bff; /* Solid Blue Background */
+            color: white; /* White text for contrast on blue background */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+            overflow-y: auto;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Softer shadow for light container */
+            border: 1px solid rgba(0, 123, 255, 0.2); /* Subtle light blue border */
+            /* GenAI-inspired pattern for container background */
+            background: 
+                linear-gradient(0deg, rgba(0,123,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,123,255,0.02) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(0,123,255,0.01) 1px, transparent 1px),
+                linear-gradient(-45deg, rgba(0,123,255,0.01) 1px, transparent 1px),
+                rgba(255, 255, 255, 0.9); /* Semi-transparent white background as the last layer */
+            background-size: 20px 20px; /* Size of the grid cells */
+            background-position: 0 0, 0 0, 0 0, 0 0; /* Align patterns */
+        }
+        h1 {
+            color: #0056b3; /* Prominent blue for headings */
+            text-align: center;
+        }
+        h2 {
+            color: #0056b3; /* Prominent blue for subheadings */
+        }
+        #notes-list {
+            margin-top: 20px;
+            border-top: 1px solid #444; /* Lighter border for dark theme */
+            padding-top: 20px;
+        }
+        .note-item {
+            background: #f8f9fa; /* Very light background for individual notes */
+            color: #495057; /* Darker text for contrast */
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 123, 255, 0.1); /* Subtle light blue border */
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #007bff; /* Blue border */
+            box-sizing: border-box;
+            background-color: #ffffff; /* White background for textarea */
+            color: #333; /* Dark text */
+        }
+        input[type="datetime-local"] {
+            background-color: #ffffff; /* White background for date inputs */
+            color: #333; /* Dark text */
+            border: 1px solid #007bff; /* Blue border */
+            border-radius: 4px;
+            padding: 8px;
+        }
+        button {
+            background-color: #007bff; /* Blue button */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .version {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 0.8em;
+            color: #6c757d; /* Muted gray for version text */
+            font-weight: bold;
+        }
+        select {
+            background-color: #ffffff; /* White background for select */
+            color: #333; /* Dark text */
+            border: 1px solid #007bff; /* Blue border */
+            border-radius: 4px;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
     <h1>Add a New Note</h1>
