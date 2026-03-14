@@ -10,10 +10,3 @@ profiles:
     - dev.yaml
   deploy:
     cloudrun: {}
-
-- name: prod
-  manifests:
-    rawYaml:
-    - prod.yaml
-  deploy:
-    cloudrun: {}
