@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: notes-app-dev
+spec:
+  template:
+    spec:
+      containers:
+      - image: flask-demonotes-app

@@ -1,0 +1,19 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: flask_demonotes
+
+profiles:
+- name: dev
+  manifests:
+    rawYaml:
+    - dev.yaml
+  deploy:
+    cloudrun: {}
+
+- name: prod
+  manifests:
+    rawYaml:
+    - prod.yaml
+  deploy:
+    cloudrun: {}
